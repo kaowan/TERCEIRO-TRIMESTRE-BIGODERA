@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times mais fomosos do mundo - 2024</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Times de futebol mais famosos do mundo 2024</h1>
+    <canvas id="brasilChart" width="400" height="200"></canvas>
+    <h2>Origem</h2>
+    <div id="brasilLyrics"></div>
+
+    <h1>Times de futebol mais famosos do mundo 2024</h1>
+    <canvas id="worldChart" width="400" height="200"></canvas>
+    <h2>Origem</h2>
+    <div id="worldLyrics"></div>
+
+    <script>
+        const brasilData = {
+            labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5', 'Time 6', 'Time 7', 'Time 8', 'Time 9', 'Time 10'],
+            datasets: [{
+                label: 'Popularidade',
+                data: [90, 85, 80, 75, 70, 65, 60, 55, 50, 45],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const worldData = {
+            labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5', 'Time 6', 'Time 7', 'Time 8', 'Time 9', 'Time 10'],
+            datasets: [{
+                label: 'Popularidade',
+                data: [95, 90, 88, 85, 80, 78, 75, 70, 68, 65],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const ctxBrasil = document.getElementById('brasilChart').getContext('2d');
+        const ctxWorld = document.getElementById('worldChart').getContext('2d');
+
+        new Chart(ctxBrasil, {
+            type: 'bar',
+            data: brasilData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctxWorld, {
+            type: 'bar',
+            data: worldData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        document.getElementById('brasilLyrics').innerHTML = '<p>Letra da Música 1...</p><p>Letra da Música 2...</p>'; // Adicione as letras aqui
+        document.getElementById('worldLyrics').innerHTML = '<p>Letra da Música A...</p><p>Letra da Música B...</p>'; // Adicione as letras aqui
+    </script>
+</body>
+</html>
