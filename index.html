@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Times de Futebol</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Melhores Times de Futebol</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Times Brasileiros</h2>
+            <canvas id="chartBrasil" width="400" height="200"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">Times Internacionais</h2>
+            <canvas id="chartInternacional" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2>Biografias</h2>
+        <div id="biografias">
+            <h4>Times Brasileiros</h4>
+            <p><strong>Flamengo:</strong> O Flamengo é um dos clubes mais populares do Brasil, com uma rica história e muitos títulos nacionais e internacionais.</p>
+            <p><strong>Palmeiras:</strong> Conhecido como "Verdão", o Palmeiras é um dos clubes mais vitoriosos do Brasil, com uma grande base de fãs.</p>
+            <p><strong>São Paulo:</strong> O São Paulo FC é um dos clubes mais respeitados do Brasil, com múltiplas conquistas na Copa do Mundo de Clubes.</p>
+            <p><strong>Corinthians:</strong> O Corinthians é um dos clubes mais tradicionais, conhecido por sua enorme torcida e rivalidades acirradas.</p>
+            <p><strong>Grêmio:</strong> O Grêmio é um clube histórico que tem uma forte presença no futebol brasileiro, com diversas conquistas nacionais e internacionais.</p>
+
+            <h4>Times Internacionais</h4>
+            <p><strong>Real Madrid:</strong> O Real Madrid é um dos clubes mais bem-sucedidos da história do futebol, conhecido por seus muitos títulos da UEFA Champions League.</p>
+            <p><strong>Barcelona:</strong> O Barcelona é famoso por seu estilo de jogo único e por ter alguns dos melhores jogadores do mundo em sua história.</p>
+            <p><strong>Bayern de Munique:</strong> O Bayern é o clube mais dominante da Alemanha e uma força importante no futebol europeu.</p>
+            <p><strong>Manchester United:</strong> Com uma rica história e muitos troféus, o Manchester United é um dos clubes mais populares do mundo.</p>
+            <p><strong>Paris Saint-Germain:</strong> O PSG tem se destacado no futebol francês e europeu, especialmente após a chegada de grandes estrelas.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ctxBrasil = document.getElementById('chartBrasil').getContext('2d');
+    const chartBrasil = new Chart(ctxBrasil, {
+        type: 'bar',
+        data: {
+            labels: ['Flamengo', 'Palmeiras', 'São Paulo', 'Corinthians', 'Grêmio'],
+            datasets: [{
+                label: 'Ranking',
+                data: [5, 4, 4, 5, 3],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Ranking'
+                    }
+                }
+            }
+        }
+    });
+
+    const ctxInternacional = document.getElementById('chartInternacional').getContext('2d');
+    const chartInternacional = new Chart(ctxInternacional, {
+        type: 'bar',
+        data: {
+            labels: ['Real Madrid', 'Barcelona', 'Bayern de Munique', 'Manchester United', 'Paris Saint-Germain'],
+            datasets: [{
+                label: 'Ranking',
+                data: [5, 5, 4, 3, 4],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Ranking'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
